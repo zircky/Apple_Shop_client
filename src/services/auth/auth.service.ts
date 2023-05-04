@@ -1,9 +1,7 @@
 import Cookies from 'js-cookie'
-import * as process from 'process'
 
 import { IAuthResponse, IEmailPassword } from '@/store/user/user.interface'
 
-import { getContentType } from '@/api/api.helper'
 import { axiosClassic } from '@/api/api.interceptor'
 
 import { seveToStorage } from '@/services/auth/auth.helper'
@@ -29,11 +27,8 @@ export const AuthService = {
 			{
 				data: IAuthResponse
 			}
-		>(
-			process.env.SERVER_URL + `/${AUTH}/login/access-token`,
-			{ refreshToken },
-			{ headers: getContentType() }
-		)
+		>(`/${AUTH}/login/access-token`, { refreshToken })
+
 		if (response.data.accessToken) seveToStorage(response.data)
 
 		return response

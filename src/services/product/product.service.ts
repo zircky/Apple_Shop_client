@@ -34,6 +34,61 @@ export const ProductService = {
 			method: 'GET'
 		})
 	},
+
+	async getByStorageCapacity(storageCapacitySlug: string) {
+		return axiosClassic<IProduct[]>({
+			url: `${PRODUCTS}/by-storageCapacity/${storageCapacitySlug}`,
+			method: 'GET'
+		})
+	},
+	async getByColors(colorsSlug: string) {
+		return axiosClassic<IProduct[]>({
+			url: `${PRODUCTS}/by-colors/${colorsSlug}`,
+			method: 'GET'
+		})
+	},
+	async getByModels(modelsSlug: string) {
+		return axiosClassic<IProduct[]>({
+			url: `${PRODUCTS}/by-models/${modelsSlug}`,
+			method: 'GET'
+		})
+	},
+	async getByCommunicationOptions(communicationOptionsSlug: string) {
+		return axiosClassic<IProduct[]>({
+			url: `${PRODUCTS}/by-communicationOptions/${communicationOptionsSlug}`,
+			method: 'GET'
+		})
+	},
+	async getByCPU(cpuSlug: string) {
+		return axiosClassic<IProduct[]>({
+			url: `${PRODUCTS}/by-cpu/${cpuSlug}`,
+			method: 'GET'
+		})
+	},
+	async getByGPU(gpuSlug: string) {
+		return axiosClassic<IProduct[]>({
+			url: `${PRODUCTS}/by-gpu/${gpuSlug}`,
+			method: 'GET'
+		})
+	},
+	async getByDiagonal(diagonalSlug: string) {
+		return axiosClassic<IProduct[]>({
+			url: `${PRODUCTS}/by-diagonal/${diagonalSlug}`,
+			method: 'GET'
+		})
+	},
+	async getBySize(sizeSlug: string) {
+		return axiosClassic<IProduct[]>({
+			url: `${PRODUCTS}/by-size/${sizeSlug}`,
+			method: 'GET'
+		})
+	},
+	async getByStrapType(strapTypeSlug: string) {
+		return axiosClassic<IProduct[]>({
+			url: `${PRODUCTS}/by-strapType/${strapTypeSlug}`,
+			method: 'GET'
+		})
+	},
 	async getById(id: string | number) {
 		return instance<IProduct>({
 			url: `${PRODUCTS}/${id}`,

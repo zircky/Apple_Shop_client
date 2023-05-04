@@ -1,0 +1,7 @@
+.textsize{
+  @apply text-xl pt-5 mx-20 font-semibold xs:text-2xl sm:text-3xl lg:text-4xl;
+  > span {
+    @apply text-gray;
+
+  }
+}

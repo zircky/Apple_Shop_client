@@ -1,0 +1,10 @@
+.layout {
+	@apply flex flex-col min-h-screen;
+	> main {
+		@apply flex-1 ;
+
+		> .content {
+			//@apply relative mx-auto max-w-full;
+		}
+	}
+}

@@ -1,7 +1,9 @@
 import { NextPage } from 'next'
 
+import Home from '@/screens/home/Home'
+
 const HomePage: NextPage = () => {
-  return <></>
+	return <Home />
 }
 
 export default HomePage
