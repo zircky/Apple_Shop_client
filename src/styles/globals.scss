@@ -10,6 +10,8 @@
 }
 body {
   @apply text-base font-light tracking-wider text-dark-d;
+  background-color: #f9f9fb;
+  //background-color: #9c0d0f;
 }
 
 .disabled {
@@ -17,4 +19,25 @@ body {
   cursor: default;
   text-decoration: none;
   opacity: 0.2 !important;
+}
+
+::-webkit-scrollbar {
+  width: 12px; /* ширина для вертикального скролла */
+  height: 8px; /* высота для горизонтального скролла */
+  background-color: #f1f1f6;
+}
+
+::-webkit-scrollbar-thumb {
+  //background-color: #623e63;
+  @apply bg-gradient-to-r from-vivid-purple via-moderate-purple to-steel-blue;
+}
+
+.open-menu {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.close-menu {
+  opacity: 0;
+  transform: scale(0);
 }

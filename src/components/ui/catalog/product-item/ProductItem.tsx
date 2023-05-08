@@ -7,39 +7,51 @@ import AddToCartButton from '@/ui/catalog/product-item/AddToCartButton'
 
 import { IProduct } from '@/interface/product.interface'
 
+import { convertPrice } from '@/utils/convertPrice'
+
+import styles from './ProductItem.module.scss'
+
 const DynamicFavoriteButton = dynamic(() => import('./FavoriteButton'), {
 	ssr: false
 })
 
 const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
 	return (
-		<div>
-			<DynamicFavoriteButton productId={product.id} />
-			<AddToCartButton product={product} />
-			<div className='group relative'>
-				<div className='min-h-[22rem] aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80'>
-					<Image
-						width={300}
-						height={300}
-						src={product.images[0]}
-						alt={product.name}
-					/>
+		<>
+			<div className={styles.bg}>
+				<div className={styles.cart_img}>
+					<Link href={`/product/${product.slug}`}>
+						<Image
+							width={200}
+							height={200}
+							src={product.images[0]}
+							alt={product.name}
+							className='w-full h-full absolute top-2/4 left-2/4'
+						/>
+					</Link>
 				</div>
 				{/*<div>{product.category.name}</div>*/}
 				{/*<ProductRating product={product} />*/}
-				<div className='mt-4 flex justify-between'>
-					<div>
-						<h3 className='text-sm text-gray-700'>
-							<Link href={product.slug}>
-								<span aria-hidden='true' className='absolute inset-0' />
-								{product.name}
-							</Link>
-						</h3>
-						<p className='text-sm font-bold text-gray-900'>{product.price}</p>
+				<div>
+					<h3 className='text-sm text-gray-700 h-24'>
+						<Link href={`/product/${product.slug}`}>
+							{/*<span aria-hidden='true' className='absolute inset-0' />*/}
+							{product.name}
+						</Link>
+					</h3>
+					<div className='grid grid-cols-6 gap-4'> </div>
+					<div className='flex justify-between'>
+						<p className='text-sm font-bold text-gray-900'>
+							{convertPrice(product.price)}
+						</p>
+						<div className='flex pr-3'>
+							<DynamicFavoriteButton productId={product.id} />
+							<AddToCartButton product={product} />
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 export default ProductItem

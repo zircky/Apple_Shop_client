@@ -1,4 +1,4 @@
-export interface IModels {
+export interface IModel {
 	id: number
 	name: string
 	slug: string

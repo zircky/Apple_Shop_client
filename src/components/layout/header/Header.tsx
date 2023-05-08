@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 
-import CartIcons from '@/layout/header/buttons/cart/CartIcons'
+import Cart from '@/layout/header/buttons/cart/Cart'
 import HeaderMenu from '@/layout/header/menu/HeaderMenu'
 import { menu } from '@/layout/header/menu/menu.data'
 import HeaderProfile from '@/layout/header/profile/HeaderProfile'
@@ -62,16 +62,12 @@ const Header: FC = () => {
 							</div>
 							<div className='absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0'>
 								<span className='sr-only'>View notifications</span>
-								<Link href='/CartPageTern'>
-									<CartIcons />
-								</Link>
+								<Cart />
 
 								{/* Profile dropdown */}
 								<Menu as='div' className='relative ml-3'>
 									<div>
-										<Link href='/auth'>
-											<HeaderProfile />
-										</Link>
+										<HeaderProfile />
 										{/*<HeaderProfileAuth />*/}
 									</div>
 								</Menu>

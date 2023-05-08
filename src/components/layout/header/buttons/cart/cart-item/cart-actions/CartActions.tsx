@@ -1,62 +1,40 @@
-
-import {FC, useState} from 'react'
+import { FC } from 'react'
+import { FiMinus, FiTrash } from 'react-icons/fi'
 
 import { useActions } from '@/hooks/useActions'
 import { useCart } from '@/hooks/useCart'
 
-import { ICartItem } from '@/types/cart.interface'
+import { ICartItem } from '@/interface/cart.interface'
 
 const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
-	// const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
-	// 	useState({
-	// 		step: 1,
-	// 		defaultValue: 1
-	// 	})
-	//
-	// const inc = getIncrementButtonProps()
-	// const dec = getDecrementButtonProps()
-	// const input = getInputProps()
-	//
-	// const { removeFromCart, changeQuantity } = useActions()
-	//
-	// const { cart } = useCart()
-	// const quantity = cart.find(cartItem => cartItem.id === item.id)?.quantity
+	const { removeFromCart, changeQuantity } = useActions()
+	const { items } = useCart()
+	const quantity = items.find(cartItem => cartItem.id === item.id)?.quantity
 
 	return (
 		<div className='mt-3'>
-			{/*	<Button*/}
-			{/*		{...dec}*/}
-			{/*		onClick={() => changeQuantity({ id: item.id, type: 'minus' })}*/}
-			{/*		disabled={quantity === 1}*/}
-			{/*	>*/}
-			{/*		<MinusIcon fontSize={13} />*/}
-			{/*	</Button>*/}
+			<div className='flex items-center gap-3'>
+				<button
+					onClick={() => changeQuantity({ id: item.id, type: 'minus' })}
+					disabled={quantity === 1}
+				>
+					<FiMinus fontSize={13} />
+				</button>
 
-			{/*	<Input*/}
-			{/*		{...input}*/}
-			{/*		focusBorderColor='green.400'*/}
-			{/*		readOnly*/}
-			{/*		_hover={{ cursor: 'default' }}*/}
-			{/*		value={quantity}*/}
-			{/*	/>*/}
+				<input
+					disabled
+					readOnly
+					value={quantity}
+					className='w-10 bg-block text-center'
+				/>
 
-			{/*	<Button*/}
-			{/*		{...inc}*/}
-			{/*		onClick={() => changeQuantity({ id: item.id, type: 'plus' })}*/}
-			{/*	>*/}
-			{/*		<AddIcon fontSize={13} />*/}
-			{/*	</Button>*/}
-
-			{/*<Button*/}
-			{/*	variant='unstyled'*/}
-			{/*	color='#F23C3D'*/}
-			{/*	marginTop={2}*/}
-			{/*	size='sm'*/}
-			{/*	opacity={0.8}*/}
-			{/*	onClick={() => removeFromCart({ id: item.id })}*/}
-			{/*>*/}
-			{/*	Remove*/}
-			{/*</Button>*/}
+				<button
+					onClick={() => removeFromCart({ id: item.id })}
+					className='ml-3 text-dark-primary'
+				>
+					<FiTrash />
+				</button>
+			</div>
 		</div>
 	)
 }

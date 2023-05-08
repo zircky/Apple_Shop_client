@@ -15,7 +15,7 @@ const AddToCartButton: FC<{ product: IProduct }> = ({ product }) => {
 	)
 
 	return (
-		<div>
+		<div className='pl-2.5'>
 			<button
 				onClick={() =>
 					currentElement

@@ -10,11 +10,12 @@ import {
 
 export const ProductService = {
 	async getAll(queryData = {} as TypeProductDataFilters) {
-		return axiosClassic<TypePaginationProducts>({
+		const { data } = await axiosClassic<TypePaginationProducts>({
 			url: PRODUCTS,
 			method: 'GET',
 			params: queryData
 		})
+		return data
 	},
 	async getSimilar(id: string | number) {
 		return axiosClassic<IProduct[]>({

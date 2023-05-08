@@ -1,18 +1,28 @@
-import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { FC } from 'react'
 import { HiOutlineUserCircle } from 'react-icons/hi'
 
 import SquaerButton from '@/ui/square-button/SquaerButton'
 
-import { useProfile } from '@/hooks/useProfile'
+import { logout } from '@/store/user/user.actions'
+
+import { useActions } from '@/hooks/useActions'
+import { useAuth } from '@/hooks/useAuth'
 
 const HeaderProfile: FC = () => {
+	const { user } = useAuth()
+	const { logout } = useActions()
+
+	const { push } = useRouter()
+
+	const handleClick = () => {
+		push('/auth')
+	}
 	return (
 		<>
-			<SquaerButton Icon={HiOutlineUserCircle} onClick={() => {}} />
+			<SquaerButton Icon={HiOutlineUserCircle} onClick={handleClick} />
+			{!!user && <button onClick={() => logout()}>Logout</button>}
 		</>
-		// <Column size={3} className='flex items-center'>
-		//     </Column>
 	)
 }
 export default HeaderProfile
