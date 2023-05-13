@@ -11,6 +11,7 @@ import { menu } from '@/layout/header/menu/menu.data'
 import HeaderProfile from '@/layout/header/profile/HeaderProfile'
 
 import logo from './../../../../public/images/logo.svg'
+import Favorite from './buttons/favorite/Favorite'
 
 const Header: FC = () => {
 	return (
@@ -61,7 +62,8 @@ const Header: FC = () => {
 								</div>
 							</div>
 							<div className='absolute inset-y-0 right-0 flex items-center pr-2 lg:static lg:inset-auto lg:ml-6 lg:pr-0'>
-								<span className='sr-only'>View notifications</span>
+								{/* <span className='sr-only'>View notifications</span> */}
+								<Favorite />
 								<Cart />
 
 								{/* Profile dropdown */}

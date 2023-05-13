@@ -1,7 +1,7 @@
 import { StaticImageData } from 'next/image'
 
 export interface ICarousel {
-	imageSrc: StaticImageData[]
+	imageSrc: StaticImageData
 	name: string
 	title: string
 	className?: string

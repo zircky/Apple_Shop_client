@@ -11,9 +11,17 @@ import { useAuth } from '@/hooks/useAuth'
 import { ModelService } from '@/services/model/model.service'
 
 const Sidebar: FC = () => {
+	// const { data: category } = useQuery(
+	// 	['get categories'],
+	// 	() => CategoryService.getAll(),
+	// 	{
+	// 		select: ({category})=> category
+	// 	}
+	// )
+
 	const { data, isLoading } = useQuery(
 		['get models'],
-		() => ModelService.getBySlugAll('iphone'),
+		() => ModelService.getByCategory('iphone'),
 		{
 			select: ({ data }) => data
 		}

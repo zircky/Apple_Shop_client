@@ -1,24 +1,35 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { FC } from 'react'
 
-import { NextPageAuth } from '@/providers/auth-provider/auth-page.types'
-
+import { useActions } from '@/hooks/useActions'
 import { useProfile } from '@/hooks/useProfile'
 
-const HeaderProfileAuth: NextPageAuth = () => {
+const HeaderProfileAuth: FC = () => {
 	const { profile } = useProfile()
+	const { logout } = useActions()
+
+	const { push } = useRouter()
+
+	const handleClick = () => {
+		push('/user')
+	}
+
 	return (
 		<div>
 			{profile?.avatarPath && (
-				<Image
-					height={43}
-					width={43}
-					src={profile?.avatarPath}
-					alt={profile?.name}
-					className='rounded-full border-primary border border-solid animate-opacity'
-				/>
+				<button onClick={handleClick}>
+					<Image
+						height={43}
+						width={43}
+						src={profile?.avatarPath}
+						alt={profile?.name}
+						className='rounded-full animate-opacity'
+					/>
+				</button>
 			)}
 		</div>
 	)
 }
-HeaderProfileAuth.isOnlyUser = true
+
 export default HeaderProfileAuth

@@ -34,7 +34,7 @@ const swiper: FC = () => {
 						<Image
 							className='object-fill w-full h-96'
 							src={item.imageSrc}
-							alt={item.imageAlt}
+							alt={item.name}
 						/>
 					</SwiperSlide>
 				))}

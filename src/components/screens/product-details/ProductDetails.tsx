@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { FC } from 'react'
 
 import Layout from '@/layout/Layout'
+import Cart from '@/layout/header/buttons/cart/Cart'
 
 import ProductRating from '@/ui/catalog/product-item/ProductRating'
 
@@ -177,12 +178,13 @@ const ProductDetails: FC<IProductDetails> = ({ product }) => {
 								{/*	</RadioGroup>*/}
 								{/*</div>*/}
 
-								<button
+								{/* <button
 									type='submit'
 									className='mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
 								>
 									Добавит в карзину
-								</button>
+								</button> */}
+								<Cart />
 							</form>
 						</div>
 
