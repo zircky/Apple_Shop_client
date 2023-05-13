@@ -22,9 +22,9 @@ export const ModelService = {
 			method: 'GET'
 		})
 	},
-	async getBySlugAll(slugAll: string) {
+	async getByCategory(categorySlug: string) {
 		return axiosClassic<IModel[]>({
-			url: `${MODELS}/by-slugAll/${slugAll}`,
+			url: `${MODELS}/by-category/${categorySlug}`,
 			method: 'GET'
 		})
 	},

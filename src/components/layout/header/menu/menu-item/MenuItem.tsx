@@ -1,21 +1,16 @@
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { IMenuLink } from './menu-item.interface'
-import cn from "clsx";
+import { ICategory } from '@/interface/category.interface'
 
-interface IMenuItem {
-	item: IMenuLink
+interface ICategoryItem {
+	item: ICategory
 }
 
-const MenuItem: FC<IMenuItem> = ({ item }) => {
+const MenuItem: FC<ICategoryItem> = ({ item }) => {
 	return (
 		<li>
-			<Link href={item.link} className={cn(
-				item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-				'rounded-md px-3 py-2 text-lg font-medium'
-			)}
-				  aria-current={item.current ? 'page' : undefined}>{item.name}</Link>
+			<Link href={`/catalog/${item.slug}`}>{item.name}</Link>
 		</li>
 	)
 }

@@ -4,7 +4,7 @@ import { ICommunicationOptions } from '@/interface/communicationOptions.interfac
 import { ICPU } from '@/interface/cpu.interface'
 import { IDiagonal } from '@/interface/diagonal.interface'
 import { IGPU } from '@/interface/gpu.interface'
-import { IModels } from '@/interface/models.interface'
+import { IModel } from '@/interface/models.interface'
 import { IReview } from '@/interface/review.interface'
 import { ISize } from '@/interface/size.interface'
 import { IStorageCapacity } from '@/interface/storageCapacity.interface'
@@ -22,7 +22,7 @@ export interface IProduct {
 	category: ICategory
 	storageCapacity: IStorageCapacity
 	colors: IColors
-	models: IModels
+	models: IModel
 	communicationOptions: ICommunicationOptions
 	cpu: ICPU
 	gpu: IGPU
