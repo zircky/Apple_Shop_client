@@ -8,7 +8,7 @@ const nextConfig = {
 		return [
 			{
 				source: '/uploads/:path*',
-				destination: `https://r4lzpe-4200.csb.app/uploads/:path*`
+				destination: `https://77ro4w-4200.csb.app/uploads/:path*`
 			}
 		]
 	}

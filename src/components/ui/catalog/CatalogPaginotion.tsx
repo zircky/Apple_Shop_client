@@ -51,7 +51,7 @@ const CatalogPaginotion: FC<ICatalogPaginotion> = ({ data, title }) => {
 					<>
 						<div className='mt-6 grid grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-2'>
 							{response.products.map(product => (
-								<div className='group pt-[21px] pb-[19px] px-[20px]'>
+								<div className='group pt-[21px] pb-[19px] px-[20px]' key={product.id}>
 									<ProductItem key={product.id} product={product} />
 								</div>
 							))}

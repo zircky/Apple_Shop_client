@@ -1,0 +1,20 @@
+.carousel {
+    @apply my-8 grid grid-cols-4 gap-4 justify-items-center mx-52;
+}
+
+.item{
+    @apply rounded-xl bg-gray p-5 pt-0;
+
+    .image{
+        // @apply ;
+    }
+    
+    .heading{
+        @apply text-lg text-dark-d mt-3 text-center font-bold;
+    }
+
+    &.active{
+        
+    }
+
+}
