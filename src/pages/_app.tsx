@@ -1,11 +1,9 @@
-import { DevSupport } from '@react-buddy/ide-toolbox-next'
 import { QueryClient } from '@tanstack/query-core'
 import { QueryClientProvider } from '@tanstack/react-query'
 import type { AppProps } from 'next/app'
+import NextNProgress from 'nextjs-progressbar'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
-
-import { ComponentPreviews, useInitial } from '@/components/dev'
 
 import AuthProvider from '@/providers/auth-provider/AuthProvider'
 import { TypeComponentAuthFields } from '@/providers/auth-provider/auth-page.types'
@@ -31,12 +29,8 @@ export default function App({
 			<Provider store={store}>
 				<PersistGate loading={null} persistor={persistor}>
 					<AuthProvider Component={{ isOnlyUser: Component.isOnlyUser }}>
-						<DevSupport
-							ComponentPreviews={ComponentPreviews}
-							useInitialHook={useInitial}
-						>
-							<Component {...pageProps} />
-						</DevSupport>
+						<NextNProgress />
+						<Component {...pageProps} />
 					</AuthProvider>
 				</PersistGate>
 			</Provider>

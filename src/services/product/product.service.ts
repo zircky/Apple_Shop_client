@@ -1,3 +1,5 @@
+import { Dispatch } from 'redux'
+
 import { IProduct, TypePaginationProducts } from '@/interface/product.interface'
 
 import { axiosClassic, instance } from '@/api/api.interceptor'
@@ -14,6 +16,15 @@ export const ProductService = {
 			url: PRODUCTS,
 			method: 'GET',
 			params: queryData
+		})
+		return data
+	},
+
+	async getAllFilter(filter: any, dispatch: Dispatch) {
+		const { data } = await axiosClassic<IProduct>({
+			url: PRODUCTS,
+			method: 'GET',
+			params: { ...filter }
 		})
 		return data
 	},

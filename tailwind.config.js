@@ -51,6 +51,9 @@ module.exports = {
 			16: '16'
 		},
 		extend: {
+			gridTemplateRows: {
+				'[auto,auto,1fr]': 'auto auto 1fr'
+			},
 			fontSize: {
 				xs: '0.82rem',
 				sm: '0.98rem',
